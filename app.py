@@ -96,6 +96,25 @@ if filtered_df.empty:
 total_sales = filtered_df['Sales'].sum()
 total_profit = filtered_df['Profit'].sum()
 profit_margin = (total_profit / total_sales) * 100 if total_sales != 0 else 0
+
+
+# -----------------------------
+# EXECUTIVE SUMMARY
+# -----------------------------
+
+st.markdown("### 📋 Executive Summary")
+
+summary_text = f"""
+• Total sales for the selected filters reached **₹{total_sales:,.0f}**.  
+• The business generated a total profit of **₹{total_profit:,.0f}**.  
+• The overall profit margin stands at **{profit_margin:.2f}%**.
+
+These insights help identify how the business is performing across the selected region, category, and time period.
+"""
+
+st.info(summary_text)
+
+
 # -----------------------------
 # KPIs
 # -----------------------------
@@ -310,16 +329,23 @@ region_sales = filtered_df.groupby("Region")["Sales"].sum()
 top_region = region_sales.idxmax()
 region_share = (region_sales.max() / region_sales.sum()) * 100
 
+if region_share > 40:
+    st.success(f"🚀 Strong performance: **{top_region}** region dominates with **{region_share:.1f}%** of total revenue.")
+elif region_share > 25:
+    st.info(f"🌍 **{top_region}** region leads with **{region_share:.1f}%** of revenue.")
+else:
+    st.warning(f"⚠ Revenue distribution is balanced. Top region **{top_region}** contributes only **{region_share:.1f}%**.")
+
+
 # Highest profit category
 category_profit = filtered_df.groupby("Category")["Profit"].sum()
 top_category = category_profit.idxmax()
 
+st.success(f"📈 **{top_category}** category has the highest total profit.")
+
+
 # Loss-making sub-category
 sub_profit = filtered_df.groupby("Sub-Category")["Profit"].sum()
-
-# Insights display
-st.info(f"🌍 **{top_region}** region contributes **{region_share:.1f}%** of selected revenue.")
-st.success(f"📈 **{top_category}** category has the highest total profit.")
 
 if (sub_profit < 0).any():
     loss_sub = sub_profit.idxmin()
