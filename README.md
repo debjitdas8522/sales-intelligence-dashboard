@@ -1,5 +1,9 @@
 # 📊 Sales Intelligence Dashboard
 
+## 🚀 Live Demo
+
+🔗 https://sales-intelligence-dashboard-huwex4x8wg2pmch2osrypk.streamlit.app
+
 An interactive **Business Intelligence dashboard** built using **Python, Streamlit, and Plotly** to analyze sales performance, monitor key metrics, and generate business insights.
 
 This project allows users to explore sales data with dynamic filters, visualize trends, and view predictive sales forecasts.
