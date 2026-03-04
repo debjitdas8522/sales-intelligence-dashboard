@@ -79,6 +79,12 @@ filtered_df = df[
     (df['Order Date'] <= pd.to_datetime(end_date))
 ]
 
+region_df = df[
+    (df['Category'] == category) &
+    (df['Order Date'] >= pd.to_datetime(start_date)) &
+    (df['Order Date'] <= pd.to_datetime(end_date))
+]
+
 if filtered_df.empty:
     st.warning("No data available for selected filters")
     st.stop()
@@ -193,7 +199,7 @@ st.markdown("## 🌍 Region Performance")
 
 from charts.region_sales import region_sales_chart
 
-fig = region_sales_chart(df)
+fig = region_sales_chart(region_df)
 st.plotly_chart(fig, use_container_width=True)
 
 

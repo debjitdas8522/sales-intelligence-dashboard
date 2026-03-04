@@ -1,8 +1,13 @@
 import plotly.express as px
 
-def region_sales_chart(df):
+def region_sales_chart(filtered_df):
 
-    region_df = df.groupby('Region')['Sales'].sum().reset_index()
+    region_df = (
+        filtered_df.groupby("Region")["Sales"]
+        .sum()
+        .reset_index()
+        .sort_values("Sales", ascending=False)
+    )
 
     fig = px.bar(
         region_df,
@@ -19,6 +24,6 @@ def region_sales_chart(df):
         title_x=0.3
     )
 
-    fig.update_traces(textposition="outside")
+    fig.update_traces(texttemplate='%{y:.0f}', textposition='outside')
 
     return fig
