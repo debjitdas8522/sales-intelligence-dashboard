@@ -1,10 +1,19 @@
-📊 Sales Intelligence Dashboard
-� � � �
-An interactive Business Intelligence dashboard built using Python, Streamlit, and Plotly to analyze sales performance, monitor key metrics, and generate actionable business insights.
+# 📊 Sales Intelligence Dashboard
 
-🚀 Live Demo
-�
-Try the deployed application here:
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
+![Data Analysis](https://img.shields.io/badge/Data%20Analysis-Business%20Intelligence-green)
+![Visualization](https://img.shields.io/badge/Visualization-Plotly-orange)
+
+An interactive **Business Intelligence dashboard** built using **Python, Streamlit, and Plotly** to analyze sales performance, monitor key metrics, and generate actionable business insights.
+
+---
+
+## 🚀 Live Demo
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://sales-intelligence-dashboard-huwex4x8wg2pmch2osrypk.streamlit.app)
+
+Try the deployed application here:  
 https://sales-intelligence-dashboard-huwex4x8wg2pmch2osrypk.streamlit.app
 
 ---
