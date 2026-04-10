@@ -5,7 +5,7 @@ def monthly_sales_chart(filtered_df):
     monthly_sales = (
         filtered_df
         .set_index('Order Date')
-        .resample('M')['Sales']
+        .resample('ME')['Sales']
         .sum()
         .reset_index()
     )

@@ -161,7 +161,7 @@ st.markdown("## 🔮 Sales Forecast (Next 3 Months)")
 monthly_sales = (
     filtered_df
     .set_index("Order Date")
-    .resample("M")["Sales"]
+    .resample("ME")["Sales"]
     .sum()
     .reset_index()
 )
@@ -179,7 +179,7 @@ future_sales = np.polyval(coeffs, future_t)
 future_dates = pd.date_range(
     monthly_sales["Order Date"].iloc[-1] + pd.DateOffset(months=1),
     periods=3,
-    freq="M"
+    freq="ME"
 )
 
 forecast_df = pd.DataFrame({
